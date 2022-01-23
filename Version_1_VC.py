@@ -13,9 +13,11 @@ def getDistance(focal_length, real_width, width_in_frame):
     distance = (real_width * focal_length) / width_in_frame
    
     return distance
-   
+
+
+
 #Draw circle if contour is a circle
-def isCircle(img, contour, color):
+def isCircle(img, contour, color):  
     approx = cv.approxPolyDP(contour, 0.01 * cv.arcLength(contour, True), True)
    
     (coord_x, coord_y), radius = cv.minEnclosingCircle(contour)
@@ -24,13 +26,16 @@ def isCircle(img, contour, color):
     contour_area = cv.contourArea(contour)
     x, y, w, h = cv.boundingRect(contour)
     aspect_ratio = w/h
+
    
-    if  1.0 >= contour_area / (radius**2 * 3.14) >= .7 and 1.1 >= aspect_ratio >= .8 and contour_area > 1000:
-        distance = getDistance(390, 24, int(w))
-        distance = int(distance)    
+    if  1.0 >= contour_area / (radius**2 * 3.14) >= .8 and 1.1 >= aspect_ratio >= .8 and contour_area > 200:
+        distance = getDistance(650, 24, int(w))
+        distance = int(distance)
+    
         cv.circle(img, center, int(radius), (0, 255, 0), 5)
         cv.putText(img, color.upper() + " BALL " + str(distance) + " CM", (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-       
+        cv.putText(img, str(center), center, cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        
         return True
    
     return False
@@ -56,14 +61,17 @@ def createBlueMask(img):
     lower_blue_1 = np.array(data["hsv_blue"]["lower_1"])
     upper_blue_1 = np.array(data["hsv_blue"]["upper_1"])
     mask_blue_1 = cv.inRange(hsv, lower_blue_1, upper_blue_1)
-   
+
     lower_blue_2 = np.array(data["hsv_blue"]["lower_2"])
     upper_blue_2 = np.array(data["hsv_blue"]["upper_2"])
     mask_blue_2 = cv.inRange(hsv, lower_blue_2, upper_blue_2)
-   
-    mask_blue = mask_blue_1 + mask_blue_2
+
+
+    mask_blue = mask_blue_1 + mask_blue_2   
 
     mask_blue = cv.morphologyEx(mask_blue, cv.MORPH_CLOSE, (7,7))
+    mask_blue = cv.morphologyEx(mask_blue, cv.MORPH_OPEN, (7,7))
+
    
     return mask_blue
        
@@ -83,6 +91,7 @@ def createRedMask(img):
     mask_red = mask_red_1 + mask_red_2
 
     mask_red = cv.morphologyEx(mask_red, cv.MORPH_CLOSE, (7,7))
+
    
     return mask_red
 
@@ -98,8 +107,8 @@ while True:
    
         #show windows
     cv.imshow("mask blue", mask_blue)
-    cv.imshow("Detected Balls", frame)
     cv.imshow("red mask", mask_red)
+    cv.imshow("Detected Balls", frame)
    
         #break loop if key pressed
     key = cv.waitKey(1)
