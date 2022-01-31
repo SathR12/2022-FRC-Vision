@@ -3,7 +3,7 @@ import numpy as np
 
 #create trackbar
 #process image
-image = cv.imread(input("Enter image file"))
+image = cv.imread(input("Enter image file "))
 LENGTH, WIDTH = 640, 480
 resized_image = cv.resize(image, (LENGTH, WIDTH))
 
