@@ -6,7 +6,7 @@ f = open("vision_data.json")
 data = json.load(f)
 
 #Image Path
-img = cv.imread(r"C:\Users\laks\am-4600.jpg")
+img = cv.imread(input("Enter path "))
 
 #Distance function
 def getDistance(focal_length, real_width, width_in_frame):
