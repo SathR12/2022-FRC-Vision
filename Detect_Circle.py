@@ -1,22 +1,21 @@
 import cv2 as cv
 import numpy as np
+import json
 
 camera = cv.VideoCapture(0, cv.CAP_DSHOW)
-
 
 def createOutline(img):
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     gray = cv.GaussianBlur(gray, (7, 7), 0)
     canny = cv.Canny(gray, 30, 150, 10)
     canny = cv.dilate(canny, None, iterations = 1)
-    canny = cv.morphologyEx(canny, cv.MORPH_OPEN, (7,7))
+    canny = cv.morphologyEx(canny, cv.MORPH_CLOSE, (7,7))
     canny = cv.morphologyEx(canny, cv.MORPH_OPEN, (7,7))
     
     return canny
 
 
 def getContours(img):
-    global contours
     contours = cv.findContours(img, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
     if len(contours) == 2:
         contours = contours[0]
@@ -49,7 +48,7 @@ while True:
         detectCircles(frame, contour)
     
     cv.imshow("frame", frame)
-    cv.imshow("canny", createOutline(frame))
+    cv.imshow("canny", createOutline(copy_frame))
     key = cv.waitKey(1)
     if key == 27:
         break
