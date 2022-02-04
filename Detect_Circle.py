@@ -1,8 +1,12 @@
 import cv2 as cv
 import numpy as np
-import json
 
-camera = cv.VideoCapture(0, cv.CAP_DSHOW)
+camera = cv.VideoCapture(0)
+
+def getDistance(focal_length, real_width, width_in_frame):
+    distance = (real_width * focal_length) / width_in_frame
+    
+    return distance
 
 def createOutline(img):
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
@@ -13,7 +17,6 @@ def createOutline(img):
     canny = cv.morphologyEx(canny, cv.MORPH_OPEN, (7,7))
     
     return canny
-
 
 def getContours(img):
     contours = cv.findContours(img, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
@@ -35,12 +38,13 @@ def detectCircles(img, contour):
     x, y, w, h = cv.boundingRect(contour)
     aspect_ratio = w/h
     circle_check = (3.14 * cv.minEnclosingCircle(contour)[1] ** 2 - contour_area < (3.14 * cv.minEnclosingCircle(contour)[1] ** 2) * (1 - 0.7))
-    
     if len(approx) > 8 and contour_area > 400 and circle_check and 1.1 >= aspect_ratio > .8:
+        distance = getDistance(630, 24.13, int(w))
+        distance = format((int(distance) * 1.1) / 100, '.2f')
         cv.circle(img, center, int(radius), (0, 255, 0), 3)
-        cv.putText(img, "BALL ", (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        cv.putText(img, "Circle Detected " + str(distance) + " M", (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        
 
-    
 while True:
     ret, frame = camera.read()
     copy_frame = frame.copy()
