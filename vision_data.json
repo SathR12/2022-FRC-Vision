@@ -26,6 +26,12 @@
      
     }
     
+    "bounding_circles": {
+    
+        "closest_ball": [0, 255, 255],
+        "detected_balls": [0, 255, 0]
+    
+    }
     
      
 }
