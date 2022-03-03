@@ -1,4 +1,4 @@
-'''Code belongs to cchen6479 and Nlin004'''
+#Code belongs to cchen6479 and Nlin004
 
 from turtle import pensize
 import numpy as np
