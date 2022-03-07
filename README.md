@@ -1,25 +1,25 @@
 # 2022-FRC-Vision
 Vision coding projects for the 2022 FRC robotics tournaments 
 
-Overview:
+## Overview:
 
-cargo_detection folder - official python scripts used by team that detects blue and red cargo.
-Hub detection folder - work-in-progress.
-Limelight folder - custom cargo detection scripts.
+cargo_detection folder contains official python scripts used by team that detects blue and red cargo.
+Hub detection folder is work-in-progress.
+Limelight folder has custom cargo detection scripts.
 
-Dependencies:
+## Dependencies:
 
--Python 
--OpenCV package
--Numpy package
+Python 
+OpenCV package
+Numpy package
 
-How to run:
+## How to run:
 
--Save the python code and the images in the same directory.
--Input the filename for the picture.
--If you are running the live feed, place the ball in the frame and hopefully it should detect the cargo.
+Save the python code and the images in the same directory.
+Input the filename for the picture.
+If you are running the live feed, place the ball in the frame and hopefully it should detect the cargo.
 
-Output:
--You will have windows
--The detected object will have a green rectangular box/ green circle around it, depending on which version you are running. 
--It will display distance and center coordinates to help Robot Code align. 
+## Output:
+You will have windows
+The detected object will have a green rectangular box/ green circle around it, depending on which version you are running. 
+It will display distance and center coordinates to help Robot Code align. 
