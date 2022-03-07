@@ -3,8 +3,10 @@ Vision coding projects for the 2022 FRC robotics tournaments
 
 ## Overview:
 
-cargo_detection folder contains official python scripts used by team that detects blue and red cargo.
+cargo_detection folder contains official python scripts used by team that detects blue and red cargo
+
 Hub detection folder is work-in-progress.
+
 Limelight folder has custom cargo detection scripts.
 
 ## Dependencies:
