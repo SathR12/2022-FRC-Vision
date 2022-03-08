@@ -25,3 +25,6 @@ If you are running the live feed, place the ball in the frame and hopefully it s
 You will have windows
 The detected object will have a green rectangular box/ green circle around it, depending on which version you are running. 
 It will display distance and center coordinates to help Robot Code align. 
+
+
+![image](https://user-images.githubusercontent.com/74515743/157141048-23eee427-241b-450f-a55e-3b7c30a72cd2.png)
