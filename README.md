@@ -29,6 +29,6 @@ It will display distance and center coordinates to help Robot Code align.
 
 ![image](https://user-images.githubusercontent.com/74515743/157141048-23eee427-241b-450f-a55e-3b7c30a72cd2.png)
 
-## Bumper detection in-progress
+## Bumper detection in-progress:
 
 <img width="764" alt="Screen Shot 2022-03-12 at 8 39 56 PM" src="https://user-images.githubusercontent.com/74515743/158041176-59e0f6e4-ae35-4fa9-99b3-a8246f5127af.png">
