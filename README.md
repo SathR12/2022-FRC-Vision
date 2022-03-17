@@ -11,8 +11,10 @@ Limelight folder has custom cargo detection scripts.
 
 ## Dependencies:
 
-Python 
+Python
+
 OpenCV package
+
 Numpy package
 
 ## How to run:
