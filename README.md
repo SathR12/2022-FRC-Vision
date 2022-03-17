@@ -17,7 +17,7 @@ OpenCV package
 
 Numpy package
 
-PyVision Package 
+PyVision Package - https://github.com/SathR12/PyVision
 
 ## How to run:
 
