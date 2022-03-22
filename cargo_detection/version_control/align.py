@@ -1,4 +1,4 @@
-'''5kn contributed angle calculations/ aligning camera to center of cargo.'''
+#SKNAT contributed angle calculations/ aligning camera to center of cargo.
 
 import cv2 as cv
 from cv2 import INTER_AREA
