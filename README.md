@@ -1,5 +1,5 @@
 # 2022-FRC-Vision
-My vision coding projects for the 2022 FRC robotics tournaments used by the team
+My vision coding projects for the 2022 FRC robotics tournaments used by the vision team
 
 ## Overview:
 
