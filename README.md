@@ -25,10 +25,8 @@ def detectCircles(img, contour):
     aspect_ratio = w/h
     circle_check = (3.14 * cv.minEnclosingCircle(contour)[1] ** 2 - contour_area < (3.14 * cv.minEnclosingCircle(contour)[1] ** 2) * (1 - 0.7))
     if len(approx) > 8 and contour_area > 400 and circle_check and 1.1 >= aspect_ratio > .8:
-        distance = getDistance(630, 24.13, int(w))
-        distance = format((int(distance) * 1.1) / 100, '.2f')
         cv.circle(img, center, int(radius), (0, 255, 0), 3)
-        cv.putText(img, "Circle Detected " + str(distance) + " M", (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        cv.putText(img, "Circle Detected ", (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
  ```
  
  You can use my algorithm for circle detection and credit me
