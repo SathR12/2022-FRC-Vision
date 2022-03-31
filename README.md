@@ -14,18 +14,20 @@ Limelight folder has custom cargo detection scripts.
 ## Algorithm behind Circle Detection
 
 ```py
-def detectCircles(img, contour):
+def isCircle(img, contour, color):  
     approx = cv.approxPolyDP(contour, 0.01 * cv.arcLength(contour, True), True)
-    
+   
     (coord_x, coord_y), radius = cv.minEnclosingCircle(contour)
-    contour_area = cv.contourArea(contour)
     center = (int(coord_x), int(coord_y))
-    
+   
+    contour_area = cv.contourArea(contour)
     x, y, w, h = cv.boundingRect(contour)
     aspect_ratio = w/h
-    if len(approx) > 8 and contour_area > 400 and 1.1 >= aspect_ratio > .8:
-        cv.circle(img, center, int(radius), (0, 255, 0), 3)
-        cv.putText(img, "Circle Detected ", (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+   
+    if  1.0 >= contour_area / (radius**2 * 3.14) >= .8 and 1.1 >= aspect_ratio >= .8 and contour_area > 200:
+            return True
+    return False
  ```
  
  You can use my algorithm for circle detection and credit me
