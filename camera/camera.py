@@ -4,15 +4,8 @@ import time
 from tqdm import tqdm
 import progressbar
 
-widgets = [' $Starting Build ', progressbar.AnimatedMarker()]
-bar = progressbar.ProgressBar(widgets = widgets).start()
-      
-for i in range(20):
-    time.sleep(0.1)
-    bar.update(i)
 
-print("$Build completed")
-
+    
 previous = 0
 current = 0
 
@@ -99,6 +92,19 @@ class Camera:
                 break
             
 
+build = input()
+
+if build == "--build":
+    widgets = [' $Starting Build ', progressbar.AnimatedMarker()]
+    bar = progressbar.ProgressBar(widgets = widgets).start()
+          
+    for i in range(20):
+        time.sleep(0.1)
+        bar.update(i)
+
+    print("$Build completed")
+    
+    
 
 
 
