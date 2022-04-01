@@ -4,8 +4,6 @@ import time
 from tqdm import tqdm
 import progressbar
 
-
-    
 previous = 0
 current = 0
 
