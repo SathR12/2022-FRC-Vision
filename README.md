@@ -29,11 +29,8 @@ def isCircle(img, contour, color):
             return True
     return False
  ```
- 
- You can use my algorithm for circle detection and credit me
- 
 
-
+ 
 ## Dependencies:
 
 Python
