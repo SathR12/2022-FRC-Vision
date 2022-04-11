@@ -11,7 +11,7 @@ Hub detection folder is work-in-progress.
 Limelight folder has custom cargo detection scripts.
 
 
-## Algorithm behind Circle Detection
+## My Algorithm behind Circle Detection
 
 ```py
 def isCircle(img, contour, color):  
