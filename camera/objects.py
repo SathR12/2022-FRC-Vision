@@ -1,4 +1,4 @@
-#This file contains examples of camera objects and is not intended for anything important
+#This file contains examples of camera objects and is not intended for use
 
 cam1 = Camera("Logitech c720", 0)
 cam2 = Camera("Gopro 5", 0)
